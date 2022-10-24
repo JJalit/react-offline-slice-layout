@@ -1,0 +1,46 @@
+[
+  {
+    "name": "이재하",
+    "nickname": "jjalit",
+    "position": "Dev Lead",
+    "tags": ["사업가", "창업가", "몽상가", "개발자", "마이크웍"],
+    "phoneNumber": "010-5421-6518",
+    "email": "jhlee@creatornomic.io",
+    "company": "Creatornomic Inc.",
+    "backgroundColor": ["#000000", "#000000"],
+    "fontColor": "#ffffff"
+  },
+  {
+    "name": "이수현",
+    "nickname": "paranmoja_shl",
+    "position": "Design Lead",
+    "tags": ["Designer", "UXUI", "Coffee Lover"],
+    "phoneNumber": "010-3566-2664",
+    "email": "leesuhyunlee@naver.com",
+    "company": "Creatornomic Inc.",
+    "backgroundColor": ["#FF584E", "#000000"],
+    "fontColor": "#ffffff"
+  },
+  {
+    "name": "이수민",
+    "nickname": "s_xsxsx_",
+    "position": "Team Lead",
+    "tags": ["slice"],
+    "phoneNumber": "010-2110-8374",
+    "email": "sm@creatornomic.io",
+    "company": "Creatornomic Inc.",
+    "backgroundColor": ["#FFFFFF", "#FFFFFF"],
+    "fontColor": "#000000"
+  },
+  {
+    "name": "임창혁",
+    "nickname": "limch0809",
+    "position": "BD Lead",
+    "tags": ["사업개발", "스타트업", "ESTJ"],
+    "phoneNumber": "010-4840-9441",
+    "email": "chlim@creatornomic.io",
+    "company": "Creatornomic Inc.",
+    "backgroundColor": ["#82C2D1", "#014873"],
+    "fontColor": "#ffffff"
+  }
+]
