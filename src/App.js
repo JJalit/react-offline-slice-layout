@@ -6,7 +6,7 @@ import data from './data.json';
 
 const Tag = props => {
   return (
-    <div style={{ padding: '6px 14px', backgroundColor: 'rgba(238, 238, 238, 0.4)', borderRadius: 20, marginRight: 15, marginTop: 15 }}>
+    <div style={{ padding: '6px 14px', backgroundColor: 'rgba(238, 238, 238, 0.4)', borderRadius: 20, marginRight: 17, marginTop: 17 }}>
       <span style={{ fontWeight: 400, fontSize: 20, color: props.fontColor, fontFamily: 'Pretendard' }}>{props.text}</span>
     </div>
   );
@@ -17,6 +17,7 @@ const App = () => {
   const backRef = React.createRef();
   const [frontNumber, setFrontNumber] = useState(0);
   const [start, setStart] = useState(false);
+  const [tagHeight, setTagHeight] = useState(0);
 
   useEffect(() => {
     if (start && frontNumber <= data.length) {
@@ -28,6 +29,10 @@ const App = () => {
       }, 2000);
     }
   }, [backRef, frontNumber, frontRef, start]);
+
+  useEffect(() => {
+    setTagHeight(Object.values(document.getElementsByClassName('tag'))[0].clientHeight);
+  }, [frontNumber]);
 
   const onStart = () => setStart(prev => !prev);
 
@@ -47,56 +52,73 @@ const App = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent: 'space-between',
               marginRight: 15,
             }}
           >
-            <p
-              style={{
-                fontWeight: 800,
-                fontSize: 50,
-                color: data[frontNumber].fontColor,
-                marginTop: 125,
-                marginBottom: 10,
-                fontFamily: 'Pretendard',
-              }}
-            >
-              {data[frontNumber].name}
-            </p>
-            <p style={{ fontWeight: 400, fontSize: 28, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
-              {data[frontNumber].position}
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: 40, width: 300, flexWrap: 'wrap', justifyContent: 'center' }}>
-              {data[frontNumber].tags.map(tag => (
-                <Tag text={tag} fontColor={data[frontNumber].fontColor} />
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <p
+                style={{
+                  fontWeight: 800,
+                  fontSize: 50,
+                  color: data[frontNumber].fontColor,
+                  marginTop: 110,
+                  marginBottom: 5,
+                  fontFamily: 'Pretendard',
+                }}
+              >
+                {data[frontNumber].name}
+              </p>
+              <p style={{ fontWeight: 400, fontSize: 22, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
+                {data[frontNumber].position}
+              </p>
+              <div
+                className="tag"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginTop: tagHeight === 106 ? 40 : 93,
+                  width: 300,
+                  flexWrap: 'wrap',
+                  justifyContent: 'center',
+                }}
+              >
+                {data[frontNumber].tags.map(tag => (
+                  <Tag text={tag} fontColor={data[frontNumber].fontColor} />
+                ))}
+              </div>
             </div>
-            <div style={{ width: 14, height: 3, backgroundColor: data[frontNumber].fontColor, marginBottom: 55, marginTop: 150 }} />
-            <div>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <div style={{ width: 100 }}>
-                  <span style={{ fontWeight: 400, fontSize: 20, color: data[frontNumber].fontColor }}>call me</span>
-                </div>
-                <span style={{ fontWeight: 600, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
-                  {data[frontNumber].phoneNumber}
-                </span>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: 18, marginBottom: 18 }}>
-                <div style={{ width: 100 }}>
-                  <span style={{ fontWeight: 400, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>email</span>
-                </div>
-                <span style={{ fontWeight: 600, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
-                  {data[frontNumber].email}
-                </span>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <div style={{ width: 100 }}>
-                  <span style={{ fontWeight: 400, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
-                    company
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ width: 14, height: 2, backgroundColor: data[frontNumber].fontColor }} />
+              <div style={{ marginBottom: 110, marginTop: 55 }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                  <div style={{ width: 100 }}>
+                    <span style={{ fontWeight: 400, fontSize: 20, color: data[frontNumber].fontColor }}>call me</span>
+                  </div>
+                  <span style={{ fontWeight: 600, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
+                    {data[frontNumber].phoneNumber}
                   </span>
                 </div>
-                <span style={{ fontWeight: 600, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
-                  {data[frontNumber].company}
-                </span>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: 15, marginBottom: 15 }}>
+                  <div style={{ width: 100 }}>
+                    <span style={{ fontWeight: 400, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
+                      email
+                    </span>
+                  </div>
+                  <span style={{ fontWeight: 600, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
+                    {data[frontNumber].email}
+                  </span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                  <div style={{ width: 100 }}>
+                    <span style={{ fontWeight: 400, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
+                      company
+                    </span>
+                  </div>
+                  <span style={{ fontWeight: 600, fontSize: 20, color: data[frontNumber].fontColor, fontFamily: 'Pretendard' }}>
+                    {data[frontNumber].company}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
