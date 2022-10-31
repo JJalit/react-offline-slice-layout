@@ -10,6 +10,7 @@
     "react-component-export-image": "1.0.6",
     "react-dom": "^18.2.0",
     "react-qr-code": "2.0.8",
+    "react-qrcode-logo": "2.8.0",
     "react-scripts": "5.0.1",
     "react-to-pdf": "0.0.14",
     "use-react-screenshot": "3.0.0",

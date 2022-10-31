@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import QRCode from 'react-qr-code';
+import { QRCode } from 'react-qrcode-logo';
 import { exportComponentAsPNG } from 'react-component-export-image';
 
 import data from './data.json';
@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'lightgray' }}>
-      <div style={{ marginTop: 15 }}>
+      <div>
         <button style={{ backgroundColor: 'blue', color: 'white', padding: '10px 20px' }} onClick={onStart}>
           START!
         </button>
@@ -139,6 +139,7 @@ const App = () => {
               value={`https://myslice.is/@${data[frontNumber].nickname}`}
               fgColor={data[frontNumber].fontColor}
               bgColor="transparent"
+              eyeRadius={2}
             />
           </div>
         </div>
