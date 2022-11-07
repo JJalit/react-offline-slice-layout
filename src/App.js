@@ -135,7 +135,7 @@ const App = () => {
             }}
           >
             <QRCode
-              size={256}
+              size={222}
               value={`https://myslice.is/@${data[frontNumber].nickname}`}
               fgColor={data[frontNumber].fontColor}
               bgColor="transparent"
